@@ -27,12 +27,7 @@ public class TableFragment extends Fragment {
                 ViewModelProviders.of(this).get(TableViewModel.class);
         View root = inflater.inflate(R.layout.fragment_table, container, false);
         button = (Button) root.findViewById(R.id.add_table);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openNewActivity();
-            }
-        });
+        button.setOnClickListener(v -> openNewActivity());
 
         /*final TextView textView = root.findViewById(R.id.text_table);
         tableViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
