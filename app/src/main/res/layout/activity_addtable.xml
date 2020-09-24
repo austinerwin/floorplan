@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/table_name"
+            android:id="@+id/table_num_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -34,7 +34,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/seatcap_text"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -45,12 +45,58 @@
         app:layout_constraintGuide_begin="548dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/seatcap_text"
         android:layout_width="131dp"
         android:layout_height="30dp"
         android:text="Seat Capacity: "
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/seat_cap_spinner"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout3" />
+
+    <TextView
+        android:id="@+id/length_text"
+        android:layout_width="74dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="11dp"
+        android:text="Length: "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/seatcap_text" />
+
+    <Spinner
+        android:id="@+id/length_spinner"
+        android:layout_width="84dp"
+        android:layout_height="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/length_text"
+        app:layout_constraintStart_toEndOf="@+id/length_text" />
+
+    <TextView
+        android:id="@+id/width_text"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="11dp"
+        android:text="Width:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/length_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/seatcap_text" />
+
+    <Spinner
+        android:id="@+id/width_spinner"
+        android:layout_width="106dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/length_text"
+        app:layout_constraintStart_toEndOf="@+id/width_text" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/length_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
