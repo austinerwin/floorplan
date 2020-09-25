@@ -35,7 +35,8 @@ public class ActivityNewTable extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addtable);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle("Add Table");
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tableNumInput = (TextInputEditText) findViewById(R.id.table_num_input);
 

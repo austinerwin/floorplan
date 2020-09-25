@@ -26,6 +26,7 @@ public class TableFragment extends Fragment {
     private TableViewModel tableViewModel;
     Button button;
     FlexboxLayout layout;
+    int tag = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -65,14 +66,19 @@ public class TableFragment extends Fragment {
                 int width = data.getExtras().getInt("width", 1);
                 Button button = new Button(getContext());
                 FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(length*150, width*150);
-                params.setMargins(20,20,20,20);
+                params.setMargins(30,30,30,30);
                 button.setLayoutParams(params);
-                button.setText(tableNum);
-                //btnTag.setId(32093409);
-
-                //add button to the layout
+                if (seatCap == 1) button.setText(tableNum + " (" + seatCap + " " + "seat)");
+                else button.setText(tableNum + " (" + seatCap + " " + "seats)");
+                button.setTag(Integer.toString(tag++));
+                button.setBackgroundResource(R.color.colorTable);
                 layout.addView(button);
-                //Toast.makeText(getContext(), data.getExtras().getString("tableNum"), Toast.LENGTH_SHORT).show();
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getContext(), data.getExtras().getString("tableNum"), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         }
     }
