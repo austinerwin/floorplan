@@ -81,7 +81,16 @@ public class ActivityNewTable extends AppCompatActivity {
                 seatCapacity = Integer.valueOf(seatCapSpinner.getSelectedItem().toString());
                 width = Integer.valueOf(widthSpinner.getSelectedItem().toString());
                 length = Integer.valueOf(lengthSpinner.getSelectedItem().toString());
-                Toast.makeText(getApplicationContext(), String.valueOf(seatCapacity), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent();
+                intent.putExtra("tableNum", tableNum);
+                intent.putExtra("seatCap", seatCapacity);
+                intent.putExtra("length", length);
+                intent.putExtra("width", width);
+                setResult(RESULT_OK, intent);
+                finish();
+
+                //Toast.makeText(getApplicationContext(), String.valueOf(seatCapacity), Toast.LENGTH_SHORT).show();
             }
         });
     }

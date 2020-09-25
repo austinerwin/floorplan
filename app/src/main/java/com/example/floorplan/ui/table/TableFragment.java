@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +16,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.floorplan.R;
+
+import static android.app.Activity.RESULT_OK;
 
 public class TableFragment extends Fragment {
 
@@ -41,6 +44,15 @@ public class TableFragment extends Fragment {
 
     public void openNewActivity(){
         Intent intent = new Intent(getView().getContext(), ActivityNewTable.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (resultCode == RESULT_OK && requestCode == 1) {
+            if (data.hasExtra("tableNum")) {
+                Toast.makeText(getContext(), data.getExtras().getString("tableNum"), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
