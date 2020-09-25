@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -58,13 +59,19 @@ public class TableFragment extends Fragment {
         if (resultCode == RESULT_OK && requestCode == 1) {
 
             if (data.hasExtra("tableNum")) {
-                Button btnTag = new Button(getContext());
-                btnTag.setLayoutParams(new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT));
-                btnTag.setText(data.getExtras().getString("tableNum"));
+                String tableNum = data.getExtras().getString("tableNum", " ");
+                int seatCap = data.getExtras().getInt("seatCap", 1);
+                int length = data.getExtras().getInt("length", 1);
+                int width = data.getExtras().getInt("width", 1);
+                Button button = new Button(getContext());
+                FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(length*150, width*150);
+                params.setMargins(20,20,20,20);
+                button.setLayoutParams(params);
+                button.setText(tableNum);
                 //btnTag.setId(32093409);
 
                 //add button to the layout
-                layout.addView(btnTag);
+                layout.addView(button);
                 //Toast.makeText(getContext(), data.getExtras().getString("tableNum"), Toast.LENGTH_SHORT).show();
             }
         }
