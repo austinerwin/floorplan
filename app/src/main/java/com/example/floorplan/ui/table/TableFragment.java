@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.floorplan.R;
+import com.google.android.flexbox.FlexboxLayout;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -23,12 +24,17 @@ public class TableFragment extends Fragment {
 
     private TableViewModel tableViewModel;
     Button button;
+    FlexboxLayout layout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+
+
         tableViewModel =
                 ViewModelProviders.of(this).get(TableViewModel.class);
         View root = inflater.inflate(R.layout.fragment_table, container, false);
+        layout = (FlexboxLayout) root.findViewById(R.id.flexbox);
         button = (Button) root.findViewById(R.id.add_table);
         button.setOnClickListener(v -> openNewActivity());
 
@@ -50,8 +56,16 @@ public class TableFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (resultCode == RESULT_OK && requestCode == 1) {
+
             if (data.hasExtra("tableNum")) {
-                Toast.makeText(getContext(), data.getExtras().getString("tableNum"), Toast.LENGTH_SHORT).show();
+                Button btnTag = new Button(getContext());
+                btnTag.setLayoutParams(new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT));
+                btnTag.setText(data.getExtras().getString("tableNum"));
+                //btnTag.setId(32093409);
+
+                //add button to the layout
+                layout.addView(btnTag);
+                //Toast.makeText(getContext(), data.getExtras().getString("tableNum"), Toast.LENGTH_SHORT).show();
             }
         }
     }

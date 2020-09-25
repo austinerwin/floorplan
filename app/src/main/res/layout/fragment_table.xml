@@ -20,9 +20,10 @@
             android:text="Add Table" />
 
         <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/flexbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:flexWrap="wrap"/>
+            app:flexWrap="wrap" />
 
 
     </LinearLayout>
