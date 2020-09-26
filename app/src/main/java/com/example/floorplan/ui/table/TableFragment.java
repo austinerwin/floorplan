@@ -55,6 +55,11 @@ public class TableFragment extends Fragment {
         startActivityForResult(intent, 1);
     }
 
+    public void openViewTableActivity(){
+        Intent intent = new Intent(getView().getContext(), ViewTable.class);
+        startActivityForResult(intent, 2);
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (resultCode == RESULT_OK && requestCode == 1) {
@@ -76,9 +81,19 @@ public class TableFragment extends Fragment {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getContext(), data.getExtras().getString("tableNum"), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getContext(), data.getExtras().getString("tableNum"), Toast.LENGTH_SHORT).show();
+                        openViewTableActivity();
                     }
                 });
+            }
+        }
+        if (resultCode == RESULT_OK && requestCode == 2) {
+            if (data.hasExtra("shouldDelete")) {
+                boolean shouldDelete = data.getExtras().getBoolean("shouldDelete", false);
+                if (shouldDelete) {
+                    // TODO: delete button
+                    //Toast.makeText(getContext(), "Table Deleted", Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }

@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="111dp"
         android:lineSpacingExtra="18sp"
-        android:text="Order details: \n Pork Feet Noodles ---- $9.60 \n Twice Cooked Pork ---- $7.60 \n Something Else ---- $4.40 \n\n\n\n\n\n\n -------------------------------- \n Subtotal:          $20.23 \n Discount:          $00.00 \n Tax:               $02.00 \n Order Total:       $55.55"
+        android:text="Order details: \n Pork Feet Noodles ---- $9.60 \n Twice Cooked Pork ---- $7.60 \n Something Else ---- $4.40 \n\n\n\n\n\n -------------------------------- \n Subtotal:          $20.23 \n Discount:          $00.00 \n Tax:               $02.00 \n Order Total:       $55.55"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,12 +74,12 @@
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="120dp"
+        android:id="@+id/delete_table_button"
+        android:layout_width="222dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:text="Delete Table"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="Done"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
